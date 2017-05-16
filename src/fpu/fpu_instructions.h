@@ -280,7 +280,7 @@ static void FPU_FADD(Bitu op1, Bitu op2){
 }
 
 static void FPU_FSIN(void){
-	fpu.regs[TOP].d = sin(fpu.regs[TOP].d);
+	fpu.regs[TOP].d = sinf(fpu.regs[TOP].d);
 	FPU_SET_C2(0);
 	//flags and such :)
 	return;
@@ -288,15 +288,15 @@ static void FPU_FSIN(void){
 
 static void FPU_FSINCOS(void){
 	Real64 temp = fpu.regs[TOP].d;
-	fpu.regs[TOP].d = sin(temp);
-	FPU_PUSH(cos(temp));
+	fpu.regs[TOP].d = sinf(temp);
+	FPU_PUSH(cosf(temp));
 	FPU_SET_C2(0);
 	//flags and such :)
 	return;
 }
 
 static void FPU_FCOS(void){
-	fpu.regs[TOP].d = cos(fpu.regs[TOP].d);
+	fpu.regs[TOP].d = cosf(fpu.regs[TOP].d);
 	FPU_SET_C2(0);
 	//flags and such :)
 	return;
